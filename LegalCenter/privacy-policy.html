@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Styuva</title>
+<meta name="description" content="Learn how Styuva collects, uses and protects your information across our SAP BTP, integration and AI automation services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<style>
+:root{
+  --bg:#F6FBFF;
+  --primary:#37B5FF;
+  --secondary:#1E88E5;
+  --ink:#0F172A;
+  --muted:#64748B;
+  --card:rgba(255,255,255,.72);
+  --border:#D6EFFF;
+  --footer-bg:#0F3059;
+  --footer-bg-2:#173E6E;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Plus Jakarta Sans', sans-serif;
+  overflow-x:hidden;
+}
+.font-mono{font-family:'JetBrains Mono', monospace;}
+.text-muted{color:var(--muted);}
+.text-primary{color:var(--primary);}
+
+/* background wash */
+.bg-wash{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(700px circle at 15% -5%, rgba(55,181,255,.16), transparent 55%),
+    radial-gradient(600px circle at 100% 10%, rgba(30,136,229,.10), transparent 50%);
+}
+.grid-wash{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(55,181,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55,181,255,.05) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 85%);
+}
+
+.eyebrow{
+  font-family:'JetBrains Mono', monospace;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.7rem;
+  color:var(--secondary);
+  display:inline-flex; align-items:center; gap:.5rem;
+}
+.eyebrow::before{
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:var(--primary); box-shadow:0 0 10px 2px rgba(55,181,255,.5);
+}
+
+.grad-text{
+  background:linear-gradient(90deg, var(--ink) 10%, var(--secondary) 60%, var(--primary) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* glass cards */
+.glass-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-radius:20px;
+  box-shadow:0 10px 40px -18px rgba(30,136,229,.25);
+  transition:transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .4s ease, border-color .4s ease;
+}
+.glass-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(55,181,255,.5);
+  box-shadow:0 24px 50px -18px rgba(30,136,229,.32);
+}
+
+/* buttons */
+.btn-primary{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg, var(--secondary), var(--primary));
+  color:#fff; font-weight:600;
+  border-radius:999px;
+  padding:.85rem 1.8rem;
+  display:inline-flex; align-items:center; gap:.5rem;
+  box-shadow:0 10px 30px -10px rgba(55,181,255,.55);
+  transition:transform .35s cubic-bezier(.16,.8,.24,1), box-shadow .35s ease;
+}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 36px -8px rgba(55,181,255,.7);}
+.btn-ghost{
+  border:1px solid var(--border);
+  color:var(--ink); font-weight:500;
+  border-radius:999px;
+  padding:.85rem 1.8rem;
+  background:#fff;
+  display:inline-flex; align-items:center; gap:.5rem;
+  transition:all .35s ease;
+}
+.btn-ghost:hover{border-color:var(--primary); box-shadow:0 8px 22px -10px rgba(55,181,255,.4);}
+
+/* navbar */
+#navbar{
+  position:sticky; top:0; z-index:100;
+  background:rgba(246,251,255,.75);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s ease;
+}
+#navbar.scrolled{box-shadow:0 8px 30px -18px rgba(30,136,229,.4);}
+.nav-link{color:var(--muted); font-size:.9rem; font-weight:500; position:relative; transition:color .25s ease;}
+.nav-link::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:linear-gradient(90deg,var(--primary),var(--secondary)); transition:width .3s ease; border-radius:2px;}
+.nav-link:hover{color:var(--ink);}
+.nav-link:hover::after{width:100%;}
+
+/* sidebar */
+.side-link{
+  display:flex; align-items:center; gap:.6rem;
+  padding:.6rem .85rem; border-radius:12px;
+  font-size:.85rem; color:var(--muted); font-weight:500;
+  border-left:2px solid transparent;
+  transition:all .25s ease;
+}
+.side-link:hover{color:var(--ink); background:rgba(55,181,255,.06);}
+.side-link.active{
+  color:var(--secondary);
+  background:rgba(55,181,255,.1);
+  border-left:2px solid var(--primary);
+  font-weight:600;
+}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,.8,.24,1), transform .8s cubic-bezier(.16,.8,.24,1);}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+/* section icon */
+.sec-icon{
+  width:2.75rem; height:2.75rem; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, rgba(55,181,255,.14), rgba(30,136,229,.08));
+  border:1px solid var(--border);
+  flex-shrink:0;
+}
+
+/* hero illustration blobs */
+.blob{position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none;}
+
+/* footer (dark, brand bridge) */
+footer{background:linear-gradient(180deg, var(--footer-bg), var(--footer-bg-2));}
+.footer-link{color:#C7D4E5; font-size:.875rem; transition:color .25s ease;}
+.footer-link:hover{color:#fff;}
+
+/* scrollbar */
+::-webkit-scrollbar{width:9px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:#BFE3FF; border-radius:10px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+}
+</style>
+</head>
+<body class="antialiased">
+
+<div class="bg-wash"></div>
+<div class="grid-wash"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+    <a href="/index.html" class="flex items-center gap-2.5">
+      <img
+            src="/images/logo.png"
+            alt="Styuva Logo"
+            style="width:48px;height:48px;object-fit:contain;"
+        >
+      <span class="font-bold tracking-tight text-[1.05rem]" style="color:var(--ink)">Styuva</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/index.html#services" class="nav-link">Services</a>
+      <a href="/LegalCenter/terms-conditions.html" class="nav-link">Terms &amp; Conditions</a>
+      <a href="/index.html#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="/index.html#contact" class="btn-primary text-sm !py-2.5 !px-5">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="relative z-10 px-6 md:px-10 pt-16 pb-14 overflow-hidden">
+  <div class="blob" style="width:420px;height:420px; top:-140px; left:-100px; background:rgba(55,181,255,.22);"></div>
+  <div class="blob" style="width:360px;height:360px; top:0; right:-120px; background:rgba(30,136,229,.14);"></div>
+
+  <div class="max-w-5xl mx-auto text-center relative reveal in">
+    <div class="eyebrow justify-center mb-6">Legal &amp; Compliance</div>
+    <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight"><span class="grad-text">Privacy Policy</span></h1>
+    <p class="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">Your privacy matters to us. Learn how Styuva collects, uses and protects your information.</p>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <span class="glass-card px-4 py-2 text-xs font-mono text-muted">Effective Date: <span class="text-ink font-semibold" style="color:var(--ink)">January 1, 2026</span></span>
+      <span class="glass-card px-4 py-2 text-xs font-mono text-muted">Last Updated: <span class="font-semibold" style="color:var(--ink)">August 14, 2026</span></span>
+    </div>
+  </div>
+
+  <!-- Privacy shield illustration -->
+  <div class="max-w-3xl mx-auto mt-14 relative reveal in">
+    <div class="glass-card p-6 md:p-10 relative overflow-hidden">
+      <svg viewBox="0 0 800 260" class="w-full h-auto">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#37B5FF"/>
+            <stop offset="100%" stop-color="#1E88E5"/>
+          </linearGradient>
+          <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#89D5FF" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#89D5FF" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- abstract cloud left -->
+        <g opacity=".9">
+          <ellipse cx="120" cy="150" rx="70" ry="34" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+          <ellipse cx="90" cy="130" rx="40" ry="26" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+          <ellipse cx="160" cy="125" rx="38" ry="24" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+        </g>
+
+        <!-- network nodes -->
+        <g stroke="#9FD4FF" stroke-width="1.3" opacity=".8">
+          <path d="M120 150 L340 130"/>
+          <path d="M660 150 L460 130"/>
+          <path d="M120 150 L280 200"/>
+          <path d="M660 150 L520 200"/>
+        </g>
+        <circle cx="340" cy="130" r="5" fill="#37B5FF"/>
+        <circle cx="460" cy="130" r="5" fill="#37B5FF"/>
+        <circle cx="280" cy="200" r="4" fill="#1E88E5"/>
+        <circle cx="520" cy="200" r="4" fill="#1E88E5"/>
+
+        <!-- center shield with lock -->
+        <circle cx="400" cy="130" r="95" fill="url(#glowGrad)"/>
+        <path d="M400 55 L462 78 V130 C462 172 435 200 400 213 C365 200 338 172 338 130 V78 Z" fill="#fff" stroke="url(#shieldGrad)" stroke-width="3"/>
+        <rect x="378" y="120" width="44" height="34" rx="6" fill="none" stroke="url(#shieldGrad)" stroke-width="3"/>
+        <path d="M386 120 v-12 a14 14 0 0128 0 v12" fill="none" stroke="url(#shieldGrad)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="400" cy="136" r="4" fill="#1E88E5"/>
+
+        <!-- abstract cloud right -->
+        <g opacity=".9">
+          <ellipse cx="680" cy="150" rx="70" ry="34" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+          <ellipse cx="710" cy="130" rx="40" ry="26" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+          <ellipse cx="640" cy="125" rx="38" ry="24" fill="#EAF6FF" stroke="#BFE3FF" stroke-width="1.5"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-28">
+  <div class="grid lg:grid-cols-[260px_1fr] gap-10">
+
+    <!-- SIDEBAR -->
+    <aside class="hidden lg:block">
+      <div id="sidebar" class="sticky top-28 glass-card p-4">
+        <div class="text-xs font-mono uppercase tracking-wider text-muted px-3 pb-2">On this page</div>
+        <nav class="space-y-1" id="sideNav"></nav>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="space-y-8" id="content"></div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="mt-16 glass-card p-10 md:p-14 text-center relative overflow-hidden reveal">
+    <div class="blob" style="width:300px;height:300px; top:-100px; left:50%; transform:translateX(-50%); background:rgba(55,181,255,.16);"></div>
+    <div class="relative">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Need help?</h2>
+      <p class="mt-4 text-muted max-w-lg mx-auto">Have a question about how we handle your data? Contact the Styuva Privacy Team — we typically respond within one business day.</p>
+      <a href="/index.html#contact" class="btn-primary mt-8">
+        Contact Us
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="relative z-10 px-6 md:px-10 py-16 text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <img
+            src="/images/logo.png"
+            alt="Styuva Logo"
+            style="width:40px;height:40px;object-fit:contain;"
+        >
+          <span class="font-semibold text-lg">Styuva</span>
+        </div>
+        <p class="text-[#C7D4E5] text-sm leading-relaxed max-w-xs">Transforming enterprise integration with SAP BTP, AI and intelligent automation.</p>
+      </div>
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-[#89D5FF] mb-4">Services</div>
+        <ul class="space-y-2.5"><li><a href="/index.html#services" class="footer-link">SAP BTP Development</a></li><li><a href="/index.html#services" class="footer-link">SAP Integration Suite</a></li><li><a href="/index.html#services" class="footer-link">AI Automation</a></li></ul>
+      </div>
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-[#89D5FF] mb-4">Quick Links</div>
+        <ul class="space-y-2.5"><li><a href="/index.html#why" class="footer-link">Why Styuva</a></li><li><a href="/index.html#portfolio" class="footer-link">Work</a></li><li><a href="/index.html#contact" class="footer-link">Contact</a></li></ul>
+      </div>
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-[#89D5FF] mb-4">Legal</div>
+        <ul class="space-y-2.5"><li><a href="/LegalCenter/privacy-policy.html" class="footer-link">Privacy Policy</a></li><li><a href="/LegalCenter/terms-conditions.html" class="footer-link">Terms &amp; Conditions</a></li></ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#C7D4E5]">
+      <span>© 2026 Styuva. All rights reserved.</span>
+      <span class="font-mono">SAP Certified Partner · AI-Powered Enterprise Automation</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ CONTENT DATA ============ */
+const icons = {
+  intro:'<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>',
+  collect:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  use:'<circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.8 2.8M15.2 15.2L18 18M6 18l2.8-2.8M15.2 8.8L18 6"/>',
+  cookies:'<circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#37B5FF"/><circle cx="14" cy="9" r="1" fill="#37B5FF"/><circle cx="15" cy="14" r="1" fill="#37B5FF"/><circle cx="9.5" cy="15" r="1" fill="#37B5FF"/>',
+  analytics:'<path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/>',
+  third:'<circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7l6 9M16 7l-6 9"/>',
+  security:'<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/>',
+  retention:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
+  rights:'<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>',
+  intl:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/>',
+  children:'<circle cx="12" cy="8" r="3"/><path d="M6 21v-2a6 6 0 0112 0v2"/>',
+  changes:'<path d="M4 4v6h6M20 20v-6h-6"/><path d="M20 10a8 8 0 00-14.5-4.5M4 14a8 8 0 0014.5 4.5"/>',
+  contact:'<path d="M3 5h18v14H3z"/><path d="M3 7l9 6 9-6"/>',
+};
+function iconSvg(name){
+  return `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icons[name]}</svg>`;
+}
+
+const sections = [
+  {id:'introduction', icon:'intro', title:'Introduction', body:`
+    <p>Styuva ("Styuva," "we," "us," or "our") provides SAP BTP development, SAP Integration Suite, SAP CPI, SAP Build, AI automation and related enterprise consulting services. This Privacy Policy explains how we collect, use, disclose and safeguard information when you visit <strong>styuva.com</strong> or otherwise interact with us.</p>
+    <p class="mt-4">By using our website, you agree to the practices described in this policy. If you do not agree, please discontinue use of the site.</p>
+    <p class="mt-4 text-sm text-muted">This document is provided as a general template for an enterprise technology website and should be reviewed by a qualified legal professional before being relied upon in production.</p>
+  `},
+  {id:'information-we-collect', icon:'collect', title:'Information We Collect', body:`
+    <p>We collect information in the following ways:</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 marker:text-[#37B5FF]">
+      <li><strong>Information you provide directly</strong> — such as your first name, last name, email address, mobile number, company, category of inquiry and message when you submit our contact form.</li>
+      <li><strong>Automatically collected information</strong> — such as IP address, browser type, device information, pages visited and referring URLs, collected via cookies and similar technologies.</li>
+      <li><strong>Communications</strong> — records of correspondence if you contact us by email, phone or WhatsApp.</li>
+    </ul>
+    <p class="mt-4">We do not collect payment information, account credentials, or sensitive personal data through this website, as Styuva operates as an informational, static business site.</p>
+  `},
+  {id:'how-we-use-information', icon:'use', title:'How We Use Information', body:`
+    <p>We use the information we collect to:</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 marker:text-[#37B5FF]">
+      <li>Respond to consultation requests and answer inquiries about our SAP and AI automation services;</li>
+      <li>Operate, maintain and improve our website and its performance;</li>
+      <li>Send relevant service updates or marketing communications, where you have opted in;</li>
+      <li>Comply with legal obligations and enforce our Terms &amp; Conditions;</li>
+      <li>Detect, prevent and address technical or security issues.</li>
+    </ul>
+  `},
+  {id:'cookies', icon:'cookies', title:'Cookies', body:`
+    <p>We use cookies and similar tracking technologies to operate our website and understand how visitors use it. Categories of cookies used include:</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 marker:text-[#37B5FF]">
+      <li><strong>Essential cookies</strong> — required for core website functionality.</li>
+      <li><strong>Analytics cookies</strong> — help us understand visitor behaviour in aggregate.</li>
+      <li><strong>Preference cookies</strong> — remember choices you make on the site.</li>
+    </ul>
+    <p class="mt-4">You can control or disable cookies through your browser settings. Disabling certain cookies may affect site functionality. For more detail, please refer to our Cookie Policy.</p>
+  `},
+  {id:'analytics', icon:'analytics', title:'Analytics', body:`
+    <p>We may use third-party analytics services (such as privacy-conscious web analytics tools) to help us understand aggregate usage trends, such as pages viewed and time on site. Data collected through analytics is generally aggregated and does not directly identify you. Where required, we apply IP anonymization and retention limits.</p>
+  `},
+  {id:'third-party-services', icon:'third', title:'Third-party Services', body:`
+    <p>We may rely on trusted third-party providers to operate our website and business, including hosting providers, email delivery services and customer relationship management (CRM) tools. These providers process data only as necessary to deliver their services to us and are contractually required to protect your information.</p>
+    <p class="mt-4">Our website is not responsible for the privacy practices of external sites we may link to, including SAP resource pages or partner sites.</p>
+  `},
+  {id:'data-security', icon:'security', title:'Data Security', body:`
+    <p>We implement industry-standard technical and organizational measures to protect your information, including encrypted data transmission (TLS), restricted access controls, and regular security reviews of our infrastructure. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+  `},
+  {id:'data-retention', icon:'retention', title:'Data Retention', body:`
+    <p>We retain contact form submissions and related correspondence for as long as necessary to respond to your inquiry and for a reasonable period afterward for record-keeping, unless you request earlier deletion. Aggregated or anonymized analytics data may be retained for longer periods for trend analysis.</p>
+  `},
+  {id:'user-rights', icon:'rights', title:'User Rights', body:`
+    <p>Depending on your jurisdiction, you may have rights to:</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 marker:text-[#37B5FF]">
+      <li>Access the personal data we hold about you;</li>
+      <li>Request correction of inaccurate data;</li>
+      <li>Request deletion of your data ("right to be forgotten");</li>
+      <li>Object to or restrict certain processing;</li>
+      <li>Request portability of your data;</li>
+      <li>Lodge a complaint with a supervisory authority.</li>
+    </ul>
+    <p class="mt-4">To exercise any of these rights, please contact us using the details in the "Contact Us" section below.</p>
+  `},
+  {id:'international-transfers', icon:'intl', title:'International Transfers', body:`
+    <p>As an enterprise technology company serving clients across regions such as manufacturing, healthcare, retail, logistics, banking and automotive, your information may be transferred to, stored, and processed in countries other than your own. Where this occurs, we take steps to ensure appropriate safeguards are in place, such as standard contractual clauses or equivalent mechanisms.</p>
+  `},
+  {id:'childrens-privacy', icon:'children', title:"Children's Privacy", body:`
+    <p>Our website and services are directed at businesses and enterprise professionals and are not intended for individuals under the age of 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can promptly remove it.</p>
+  `},
+  {id:'changes-to-policy', icon:'changes', title:'Changes to Policy', body:`
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, legal requirements, or other factors. When we do, we will revise the "Last Updated" date at the top of this page. We encourage you to review this page periodically.</p>
+  `},
+  {id:'contact-us', icon:'contact', title:'Contact Us', body:`
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or how we handle your information, please reach out to the Styuva Privacy Team:</p>
+    <ul class="mt-4 space-y-1.5">
+      <li>Email: <strong>privacy@styuva.com</strong></li>
+      <li>Phone: <strong>+1 (415) 555-0142</strong></li>
+      <li>General inquiries: <strong>hello@styuva.com</strong></li>
+    </ul>
+  `},
+];
+
+/* ============ RENDER ============ */
+const content = document.getElementById('content');
+const sideNav = document.getElementById('sideNav');
+
+sections.forEach((s, i)=>{
+  const card = document.createElement('section');
+  card.id = s.id;
+  card.className = 'glass-card p-7 md:p-9 scroll-mt-28 reveal';
+  card.innerHTML = `
+    <div class="flex items-start gap-4">
+      <div class="sec-icon">${iconSvg(s.icon)}</div>
+      <div class="flex-1">
+        <div class="text-xs font-mono text-muted mb-1">0${i+1}</div>
+        <h2 class="text-xl md:text-2xl font-bold tracking-tight" style="color:var(--ink)">${s.title}</h2>
+        <div class="mt-4 text-[15px] leading-relaxed" style="color:#334155">${s.body}</div>
+      </div>
+    </div>
+  `;
+  content.appendChild(card);
+
+  const link = document.createElement('a');
+  link.href = '#' + s.id;
+  link.className = 'side-link';
+  link.dataset.target = s.id;
+  link.innerHTML = `<span>${s.title}</span>`;
+  sideNav.appendChild(link);
+});
+
+/* reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* navbar shadow on scroll */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', ()=> navbar.classList.toggle('scrolled', window.scrollY > 10));
+
+/* scrollspy */
+const sideLinks = document.querySelectorAll('.side-link');
+const spyIO = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    const link = document.querySelector(`.side-link[data-target="${entry.target.id}"]`);
+    if(!link) return;
+    if(entry.isIntersecting){
+      sideLinks.forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+}, {rootMargin:'-30% 0px -55% 0px', threshold:0});
+sections.forEach(s=>{
+  const el = document.getElementById(s.id);
+  if(el) spyIO.observe(el);
+});
+</script>
+</body>
+</html>
